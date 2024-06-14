@@ -1,0 +1,32 @@
+<div class="container">
+    <br>
+    <h1 style="padding-left: 90px;text-shadow: 0 0 3px #FF0000;">List of Branchs <span style="padding-left: 200px;"><a href="AdminLocker" class="btn btn-success">Add Branch</a></span><span style="padding-left: 100px;"><a href="AdminHome" class="btn btn-primary">Back</a></span></h1><br>
+
+    <table class="table table-striped">
+        <thead class="table-dark text-white">
+            <tr>
+                <th>Branch ID</th>
+                <th>Branch Name</th>
+                <th>State</th>
+                <th>District</th>
+                <th>Total Lockers</th>
+                <th>Available Lockers</th>
+                <th>Booked Lockers</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let us of Branch" >
+                <td>{{us.branch_Id}}</td>
+                <td>{{us.branch_Name}}</td>
+                <td>{{us.state}}</td>
+                <td>{{us.district}}</td>
+                <td>{{us.total_locker}}</td>
+                <td>{{us.available_Locker}}</td>
+                <td>{{us.total_locker-us.available_Locker}}</td>
+                <td><button type="button" (click)="deleteBranch(us.branch_Id)">Delete</button></td>
+            </tr>
+        </tbody>
+        
+    </table>
+    </div>

@@ -1,0 +1,38 @@
+<div class="card" style="width: 32rem; height: 30rem;">
+    <div class="card-body">
+      <h1 class="card-title" style="text-align: center;text-shadow: 0 0 3px #FF0000;">Lock Availability Page</h1><br>
+      <button class="btn btn-danger" style="width: 50%; margin-left: 60px;" (click)="GetUserbyId(this.user)">Locker Status</button><span style="margin-left: 70px;"><a href="Login" class="btn btn-warning">Back</a></span><br><br>
+      <form action="" #myform2="ngForm" (ngSubmit)="DisplayLocker(myform2)">
+        <h6 id="one"><button class="btn btn-primary" (click)="request()">Start Search</button></h6><br>
+        <table>
+          <tr>
+            <td><h5 style="text-align: center;" >Select State </h5></td>
+            <select name="Se_Branch" id="Se_Branch" ngModel #stateSelect="ngModel" (change)="onStateChange(stateSelect.value)">
+              <option value="Select">select</option>
+              <option  *ngFor="let us of uniquestates" name="Se_Branch">{{us}}</option>
+            </select>
+          </tr>
+          <tr>
+            <td><h5 style="text-align: center;">Select District </h5></td>
+            <select name="Se_Branch" id="Se_Branch" ngModel #districtSelect="ngModel" (change)="onDistrictChange(districtSelect.value)">
+              <option value="Select">select</option>
+              <option  *ngFor="let us of uniquedistrict" name="Se_Branch">{{us}}</option>
+            </select>
+          </tr>
+            <tr>
+                <td><h5 style="text-align: center;">Select Branch Name </h5></td>
+                <select name="Se_Branch" id="Se_Branch" ngModel #branchSelect="ngModel" (change)="onBranchChange(branchSelect.value)">
+                  <option value="Select">select</option>
+                  <option  *ngFor="let us of uniquebranch" name="Se_Branch">{{us}}</option>
+                </select>
+            </tr>
+        </table>
+        
+        <button type="submit" class="btn btn-success" style="margin-left: 38%;">Search</button>
+       
+      </form><br>
+      <div *ngIf="this.result"><h5 style="text-align: center;">Available Locker : {{this.result}}</h5></div>
+      
+      <button *ngIf="this.result && this.result > 0" class="btn btn-primary" (click)="redirect(this.user,this.selectedBranch)" style="margin-left: 38%;">Request</button>
+    </div>
+  </div>

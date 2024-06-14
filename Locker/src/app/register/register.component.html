@@ -1,0 +1,102 @@
+<!-- <div class="card" style="width: 25rem; height: 29rem;">
+    <div class="card-body">
+      <h1 class="card-title" style="text-align: center;text-shadow: 0 0 3px #FF0000;">Registration</h1><br>
+      <form #myform="ngForm" (ngSubmit)="AddUser(myform)">
+        <table style="margin: auto;">
+            <tr>
+                <td><h5>Name</h5> </td>
+                <td><input type="text" name="Name" id="name" ngModel required #myName="ngModel"></td>
+            </tr>
+            <tr>
+                <td><h5>Email</h5> </td>
+                <td><input type="text" name="Email" id="email" ngModel required #myEmail="ngModel"></td>
+            </tr>
+            <tr>
+                <td><h5>Mobile </h5></td>
+                <td><input type="text" name="Phone" id="mobile" ngModel required #myPhone="ngModel"></td>
+            </tr>
+            <tr>
+                <td><h5>State </h5></td>
+                <td><input type="text" name="State" id="state" ngModel required #myState="ngModel"></td>
+            </tr>
+            <tr>
+                <td><h5>District</h5> </td>
+                <td><input type="text" name="District" id="district" ngModel required #myDistrict="ngModel"></td>
+            </tr>
+            <tr>
+                <td><h5>Password </h5></td>
+                <td><input type="password" name="Password" id="password" ngModel required #myPassword="ngModel"></td>
+            </tr>
+        </table><br>
+        <button type="submit" class="btn btn-success" [disabled]="myform.invalid" style="margin-left: 40%;">Submit</button>
+      <br><br>
+      <a href="Login" class="btn btn-primary" style="margin-left: 42%;">Back</a>
+      </form><br>
+
+      
+    </div>
+  </div> -->
+
+
+  <div class="card" style="width: 55rem; height: 29rem;">
+    <div class="card-body">
+      <h1 class="card-title" style="text-align: center;text-shadow: 0 0 3px #FF0000;">Registration</h1><br>
+      <form #myform="ngForm" (ngSubmit)="AddUser(myform)">
+        <table style="margin: auto;">
+            <tr>
+                <td><h5>Name</h5> </td>
+                <td><input type="text" name="Name" id="name" ngModel required pattern="^[A-Za-z]+$" #myName="ngModel"></td>
+                <div *ngIf="myName.invalid && (myName.dirty || myName.touched)"  class="error">
+                    <div *ngIf="myName.errors?.['required']">Name is required.</div>
+                    <div *ngIf="myName.errors?.['pattern']">Name must contain only alphabets.</div>
+                  </div>
+            </tr>
+            <tr>
+                <td><h5>Email</h5> </td>
+                <td><input type="text" name="Email" id="email" ngModel required pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" #myEmail="ngModel"></td>
+                <div *ngIf="myEmail.invalid && (myEmail.dirty || myEmail.touched)"  class="error">
+                    <div *ngIf="myEmail.errors?.['required']">Email is required.</div>
+                    <div *ngIf="myEmail.errors?.['pattern']">Please enter a valid email address.</div>
+                  </div>
+            </tr>
+            <tr>
+                <td><h5>Mobile </h5></td>
+                <td><input type="text" name="Phone" id="mobile" ngModel required pattern="^\d{10}$" #myPhone="ngModel"></td>
+                <div *ngIf="myPhone.invalid && (myPhone.dirty || myPhone.touched)"  class="error">
+                    <div *ngIf="myPhone.errors?.['required']">Phone number is required.</div>
+                    <div *ngIf="myPhone.errors?.['pattern']">Phone number must be exactly 10 digits.</div>
+                  </div>
+            </tr>
+            <tr>
+                <td><h5>State </h5></td>
+                <td><input type="text" name="State" id="state" ngModel required #myState="ngModel"></td>
+                <div *ngIf="myState.invalid && (myState.dirty || myState.touched)"  class="error">
+                    <div *ngIf="myState.errors?.['required']">State is required.</div>
+                  </div>
+            </tr>
+            <tr>
+                <td><h5>District</h5> </td>
+                <td><input type="text" name="District" id="district" ngModel required #myDistrict="ngModel"></td>
+                <div *ngIf="myDistrict.invalid && (myDistrict.dirty || myDistrict.touched)" class="error">
+                    <div *ngIf="myDistrict.errors?.['required']">District is required.</div>
+                  </div>
+            </tr>
+            <tr>
+                <td><h5>Password </h5></td>
+                <td><input type="password" name="Password" id="password" ngModel required pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^\da-zA-Z]).{8,15}$" #myPassword="ngModel"></td>
+                <div *ngIf="myPassword.invalid && (myPassword.dirty || myPassword.touched)" class="error">
+                    <div *ngIf="myPassword.errors?.['required']">Password is required.</div>
+                    <div *ngIf="myPassword.errors?.['pattern']">
+                      Password must have at least one uppercase letter, one lowercase letter, one digit, and one special character.
+                    </div>
+                  </div>
+            </tr>
+        </table><br>
+        <button type="submit" class="btn btn-success" [disabled]="myform.invalid" style="margin-left: 40%;">Submit</button>
+      <br><br>
+      <a href="Login" class="btn btn-primary" style="margin-left: 42%;">Back</a>
+      </form><br>
+
+      
+    </div>
+  </div>

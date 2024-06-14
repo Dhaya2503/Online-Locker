@@ -1,0 +1,35 @@
+<p>{{mail}}</p>
+<p>{{branch}}</p>
+<div class="container">
+    <br>
+    <h1 style="padding-left: 90px;text-shadow: 0 0 3px #FF0000;">List of Requests <span style="padding-left: 100px;"><a href="AdminHome" class="btn btn-primary">Back</a></span></h1><br>
+
+    <table class="table table-striped" *ngIf="Request && Request.length>0">
+        <thead class="table-dark text-white">
+            <tr>
+                <th>Request ID</th>
+                <th>Branch ID</th>
+                <th>Branch Name</th>
+                <th>User ID</th>
+                <th>User Name</th>
+                <th>User Email</th>
+                <th>Approve</th>
+                <th>Reject</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let us of Request">
+                <td>{{us.request_Id}}</td>
+                <td>{{us.branch_Id}}</td>
+                <td>{{us.branch_Name}}</td>
+                <td>{{us.user_Id}}</td>
+                <td>{{us.user_Name}}</td>
+                <td>{{us.user_Email}}</td>
+                <td><button class="btn btn-success" (click)="Approve(us)">Approve</button></td>
+                <td><button class="btn btn-danger" (click)="Reject(us)">Reject</button></td>
+            </tr>
+        </tbody>
+        
+    </table>
+    <br><h2 style="text-align: center;" *ngIf="!Request || Request.length<=0">No Requests !</h2>
+    </div>

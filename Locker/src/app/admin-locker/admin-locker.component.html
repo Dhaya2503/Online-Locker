@@ -1,0 +1,34 @@
+<div class="card" style="width: 35rem; height: 29rem;">
+    <div class="card-body">
+      <h1 class="card-title" style="text-align: center;text-shadow: 0 0 3px #FF0000;">Add Locker </h1><br>
+      <form #myform="ngForm" (ngSubmit)="UpdateLocker(myform)">
+        <table style="margin: auto;">
+            <tr>
+                <td><h5>State</h5> </td>
+                <td><input type="text" name="State" id="State" ngModel required #myState="ngModel"></td>
+            </tr>
+            <tr>
+                <td><h5>District</h5> </td>
+                <td><input type="text" name="District" id="District" ngModel required #myDistrict="ngModel"></td>
+            </tr>
+            <tr>
+                <td><h5>Branch Name</h5> </td>
+                <td><input type="text" name="Branch_Name" id="Branch_Name" ngModel required #myBranchname="ngModel"></td>
+            </tr>
+            <tr>
+                <td><h5>Total Lockers </h5></td>
+                <td><input type="number" name="Total_Locker" id="Total_Locker" ngModel required #myTotal_Lockers="ngModel"></td>
+            </tr>
+            <tr>
+                <td><h5>Available Lockers</h5></td>
+                <td><input type="number" name="Available_Locker" id="Available_Locker" ngModel required #myAvailableLockers="ngModel"></td>
+            </tr>
+        </table><br>
+        <button type="submit" class="btn btn-success" [disabled]="myform.invalid" style="margin-left: 40%;">Submit</button>
+      <br><br>
+      <a href="AdminHome" class="btn btn-primary" style="margin-left: 42%;">Back</a>
+      </form><br>
+
+      
+    </div>
+  </div>
